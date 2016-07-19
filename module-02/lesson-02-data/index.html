@@ -20,6 +20,8 @@
     <p>I have a denim vest that I like to sew patches onto. I need one that represents God's Eye. This is a concept that both novices and experts need to keep in mind as they analyze and create maps. This is feminist epistemology 101- the map does not represent the cold, disempassioned view of objectivity promised by enlightenment scholars, the recording of the truth in map form. Rather, what we see with any map - is a particular perspective, a claim to truth that crowds out other claims - with consequences of course. <a href=https://baconipsum.com/>bacon ipsum generator</a> </p>
     <img src="images/world2.png" alt=" world map">
 
+ <!  3. Inside our paragraph tags we used an a tag to insert a link, We then were able to give the link a different name than the website address - in this case Lorem Ipsum. Later were we able to play around with the clicking behaviors and the colors of these links >
+
     <p>paragraph with link: <a href="https://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl.</p>
     <ul>
         <li><a href="http://leafletjs.com/>Leaflet">Leaflet</a></li>
@@ -27,7 +29,8 @@
         <li><a href="https://carto.com/">CartoDB</a></li>
         <li><a href="https://d3js.org/">Data-Driven Documents</a></li>
     </ul>
-    <div id="map"></div>
+ <! 4. I could actually use some help with this one. I certainly understand the class. We have three circles - because we made 3 div tags for circles - because they are multiple we call them a class - we can make the same changes to all of the circles using class - as for the box and the map id I put in - we are talking about it in the singular. There is one box - so a class is not needed. FOr task #6 I am not necessarily understanding how to make how I can refer to the image element and a give it a value of map >
+    <div img="map"></div>
     <div id="box"></div>
     <div class="circle"></div>
     <div class="circle"></div>
@@ -41,6 +44,7 @@
             font-family: cursive;
             color: #3d3d3d;
     }
+    /* 1. In this case we are using CSS to override the default settings for our brower - which were given automatically when we built the structure in HTML - New we give it form playing with the margins and the font size  */
 h1 {
     font-size: 4em;
     margin-left: 25px;
@@ -66,7 +70,8 @@ a:hover {
 }
 img {
     margin-left: 25px;   
-}    
+}  
+/* Here the hashtag identifies a unique identifier with an identifier of box, while the period selects all the division elements with class attributes of circle. Previously with the div tags we set a structure for our box and series of circles - here we use CSS code to give it form, which include size, background color, and the border-radius, which circles our square.  */
 #box {
     width: 200px;
     height: 200px;
@@ -91,6 +96,7 @@ box.style.background = '#4d4a9f';
         var elements = document.getElementsByClassName('circle');
 for(var i=0; i <= elements.length-1;i++){
     elements[i].style['border-radius'] = '20%'; } 
+// We included below what is called an event listener. Once the box is clicked it doubles.
     box.addEventListener('click', function() {
     this.style.width = '400px';   
     });
