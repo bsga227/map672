@@ -7,7 +7,55 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <style>
-        /* CSS style rules go here! */
+		body  {
+				margin: 0;
+				padding: 0;
+				background: #7fffd4;
+				font-family: cursive;
+				color: #3d3d3d;
+		}
+		/* 1. In this case we are using CSS to override the default settings for our brower - which were given automatically when we built the structure in HTML - Now we give it form playing with the margins and the font size  */
+		h1 {
+			font-size: 4em;
+			margin-left: 25px;
+			font-family: monospace
+		}
+		h2 {
+			font-size: 3em;
+			margin-left: 25px;
+			font-family: inherit
+		}
+		p {
+			font-size: 1em;
+			margin: 15px 25px;
+			max-width: 800px;
+		}
+		a {
+			color: #8a2be2;
+			font-weight: bold;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		img {
+			margin-left: 25px;   
+		}  
+		/* Here the hashtag identifies a unique identifier with an identifier of box, while the period selects all the division elements with class attributes of circle. Previously with the div tags we set a structure for our box and series of circles - here we use CSS code to give it form, which include size, background color, and the border-radius, which circles our square.  */
+		#box {
+			width: 200px;
+			height: 200px;
+			background: #3e6b93;
+			margin: 25px;
+		}
+			.circle {
+			width: 100px;
+			height: 100px;
+			background: #bf6864;
+			border-radius: 50%;
+			display: inline-block;
+			margin: 0 25px;
+		}
         
     </style>
 </head>
@@ -17,8 +65,9 @@
     
     <h1>Look_at_this_map!</h1>
     <h2>It_turns_out_the_world_is_actually_black_and_white</h2>
-    <p>I have a denim vest that I like to sew patches onto. I need one that represents God's Eye. This is a concept that both novices and experts need to keep in mind as they analyze and create maps. This is feminist epistemology 101- the map does not represent the cold, disempassioned view of objectivity promised by enlightenment scholars, the recording of the truth in map form. Rather, what we see with any map - is a particular perspective, a claim to truth that crowds out other claims - with consequences of course. <a href=https://baconipsum.com/>bacon ipsum generator</a> </p>
-    <img src="images/world2.png" alt=" world map">
+    <p>I have a denim vest that I like to sew patches onto. I need one that represents God's Eye. This is a concept that both novices and experts need to keep in mind as they analyze and create maps. This is feminist epistemology 101- the map does not represent the cold, disempassioned view of objectivity promised by enlightenment scholars, the recording of the truth in map form. Rather, what we see with any map - is a particular perspective, a claim to truth that crowds out other claims - with consequences of course. <a href=https://baconipsum.com>bacon ipsum generator</a></p>
+    
+	<img id="map" src="images/world2.png" alt=" world map">
 
  <!--  3. Inside our paragraph tags we used an a tag to insert a link, We then were able to give the link a different name than the website address - in this case Lorem Ipsum. Later were we able to play around with the clicking behaviors and the colors of these links -->
 
@@ -30,64 +79,11 @@
         <li><a href="https://d3js.org/">Data-Driven Documents</a></li>
     </ul>
  <!-- 4. I could actually use some help with this one. I certainly understand the class. We have three circles - because we made 3 div tags for circles - because they are multiple we call them a class - we can make the same changes to all of the circles using class - as for the box and the map id I put in - we are talking about it in the singular. There is one box - so a class is not needed. FOr task #6 I am not necessarily understanding how to make how I can refer to the image element and a give it a value of map -->
-    <div img="map"></div>
+
     <div id="box"></div>
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
-
-<style>
-    body  {
-            margin: 0;
-            padding: 0;
-            background: #7fffd4;
-            font-family: cursive;
-            color: #3d3d3d;
-    }
-    /* 1. In this case we are using CSS to override the default settings for our brower - which were given automatically when we built the structure in HTML - Now we give it form playing with the margins and the font size  */
-	h1 {
-		font-size: 4em;
-		margin-left: 25px;
-		font-family: monospace
-	}
-	h2 {
-		font-size: 3em;
-		margin-left: 25px;
-		font-family: inherit
-	}
-	p {
-		font-size: 1em;
-		margin: 15px 25px;
-		max-width: 800px;
-	}
-	a {
-		color: #8a2be2;
-		font-weight: bold;
-		text-decoration: none;
-	}
-	a:hover {
-		text-decoration: underline;
-	}
-	img {
-		margin-left: 25px;   
-	}  
-	/* Here the hashtag identifies a unique identifier with an identifier of box, while the period selects all the division elements with class attributes of circle. Previously with the div tags we set a structure for our box and series of circles - here we use CSS code to give it form, which include size, background color, and the border-radius, which circles our square.  */
-	#box {
-		width: 200px;
-		height: 200px;
-		background: #3e6b93;
-		margin: 25px;
-	}
-		.circle {
-		width: 100px;
-		height: 100px;
-		background: #bf6864;
-		border-radius: 50%;
-		display: inline-block;
-		margin: 0 25px;
-	}
-</style>
-
 
 <script>
     document.querySelector('h1').innerHTML = 'web mapping is sweet!';
