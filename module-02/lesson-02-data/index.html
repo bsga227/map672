@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+    
 <head>
     <meta charset=utf-8 />
     <title>MAP672 Module 2 Template</title>
@@ -29,7 +29,7 @@
         <li><a href="https://carto.com/">CartoDB</a></li>
         <li><a href="https://d3js.org/">Data-Driven Documents</a></li>
     </ul>
- <! 4. I could actually use some help with this one. I certainly understand the class. We have three circles - because we made 3 div tags for circles - because they are multiple we call them a class - we can make the same changes to all of the circles using class - as for the box and the map id I put in - we are talking about it in the singular. There is one box - so a class is not needed. FOr task #6 I am not necessarily understanding how to make how I can refer to the image element and a give it a value of map >
+ <! 4. I could actually use some help with this one. I certainly understand the class. We have three circles - because we made 3 div tags for circles - because they are multiple we call them a class - we can make the same changes to all of the circles using class - as for the box and the map id I put in - we are talking about it in the singular. There is one box - so a class is not needed. For task #6 I am not sure how to make the img file a unique value - do I need to make it ID or is that specific to box?  >
     <div img="map"></div>
     <div id="box"></div>
     <div class="circle"></div>
@@ -71,7 +71,7 @@ a:hover {
 img {
     margin-left: 25px;   
 }  
-/* Here the hashtag identifies a unique identifier with an identifier of box, while the period selects all the division elements with class attributes of circle. Previously with the div tags we set a structure for our box and series of circles - here we use CSS code to give it form, which include size, background color, and the border-radius, which circles our square.  */
+/* 2. Here the hashtag identifies a unique identifier with an identifier of box, while the period selects all the division elements with class attributes of circle. Previously with the div tags we set a structure for our box and series of circles - here we use CSS code to give it form, which include size, background color, and the border-radius, which circles our square.  */
 #box {
     width: 200px;
     height: 200px;
@@ -90,13 +90,18 @@ img {
 
 
     <script>
+        
+        console.log("hello map");
+        
        document.querySelector('h1').innerHTML = 'web mapping is sweet!';
         var box = document.getElementById('box');
 box.style.background = '#4d4a9f'; 
         var elements = document.getElementsByClassName('circle');
 for(var i=0; i <= elements.length-1;i++){
     elements[i].style['border-radius'] = '20%'; } 
-// We included below what is called an event listener. Once the box is clicked it doubles.
+        
+// 5. We included below what is called an event listener. Once the box is clicked it doubles.
+   
     box.addEventListener('click', function() {
     this.style.width = '400px';   
     });
