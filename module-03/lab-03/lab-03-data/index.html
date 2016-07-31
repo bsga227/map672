@@ -29,7 +29,7 @@
         }
         h2 {
             display: inline-block;
-            color: #001323;
+            color: #006400;
         }
         #map {
             width: 80%;
@@ -50,16 +50,16 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Remembering the Summer of 2014</h1>
+        <h2>Where should I go to avoid grading AP exams?</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
+        <p>Bradley Gardener</p>
+        <p>Data from the map is availiable through simple Google Searches. Praise the U.S. Census.</p>
+        <p> What do you do? Go sit in a room and grade essay questions that make racist assumptions about what economists call the developing world or go hang out with a DJ you just met at a local bar? You are in Southern Ohio now. Will you make it back by grading time??? Do you care for the salary you are being paid???
         </p>
     </footer>
 
@@ -116,7 +116,7 @@
         var cityPop = 308428;
         console.log("The population of Lexington is ", cityPop);
         
-        var cities = ["Frankfort", "Louisville", "Lexington"];
+        var cities1 = ["Frankfort", "Louisville", "Lexington"];
         console.log(cities);
         
         var populations = [25527, 756832, 308428];
@@ -132,11 +132,11 @@
         ];
         console.log(twoDArray);
 
-        var cities = ["Frankfort", "Louisville", "Lexington"];
-        console.log(cities[0]); 
-        console.log(cities[1]); 
-        console.log(cities[2]); 
-        console.log(cities[3]); 
+        var cities1 = ["Frankfort", "Louisville", "Lexington"];
+        console.log(cities1[0]); 
+        console.log(cities1[1]); 
+        console.log(cities1[2]); 
+        console.log(cities1[3]); 
         
         var twoDArray = [
         ["Frankfort", "Louisville", "Lexington"],
@@ -200,7 +200,16 @@
         var city3Pop = 253128;
         var city3Capital = (false);
         
+        var totalPop = city1Pop + city2Pop + city3Pop
+        console.log("The total population of these cities is", totalPop);
         
+        var averagePop = totalPop/3
+        console.log("The average population of these cities is", averagePop);
+        
+        var cities = ["Lexington", "Frankfort", "Louisville"];
+        console.log(cities[2]);
+        
+        var city1pop 
         var city1Popup = "<b>"+city1Name+"</b><br>"
                         +"<b>population</b>: "+city1Pop;
         
