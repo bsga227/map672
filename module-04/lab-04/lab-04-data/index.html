@@ -104,8 +104,26 @@
         map.addLayer(tiles);
           
         
-        //writing/editing Lab 04 code here
+var cityCoords = [ 
+        ["Oslo", 59.3293, 10.7522],
+        ["Stockholm", 59.9139, 18.0686],
+        ["Helsinki", 60.1699, 24.93844]
+    ];
+    console.log(cityCoords);
         
+var cityPops = [
+    ["Oslo", 618613],
+    ["Stockholm", 789024],
+    ["Helsinki", 599679]
+];
+        console.log(cityPops); 
+        
+var cityCapital = [
+    ["Oslo", false],
+    ["Stockholm", true],
+    ["Helsinki", false]
+];
+        console.log(cityCapital);     
 
 //        for(/* add code here */) {
 //            
@@ -124,38 +142,38 @@
 //                .bindPopup(popup);
 //        } var city1Popup = "<b>"+city1Name+"</b><br>"
                         
+//This is the way we did it in lab #3 - just making sure it works        
+//var city1Popup = "<b>"+city1Name+"</b><br>"
+//               +"<b>population</b>: "+city1Pop;
         
-        var city1Popup = "<b>"+city1Name+"</b><br>"
-                       +"<b>population</b>: "+city1Pop;
+//if(city1Capital == true) {
+//    city1Popup += "<br>Broadway";   
+//}
         
-        if(city1Capital == true) {
-            city1Popup += "<br>Broadway";   
-        }
+//L.marker([city1Lat,city1Lon]).addTo(map)
         
-        L.marker([city1Lat,city1Lon]).addTo(map)
+//            .bindPopup(city1Popup);
         
-                    .bindPopup(city1Popup);
+//var city2Popup = "<b>"+city2Name+"</b><br>"
+//             +"<b>population</b>: "+city2Pop;
         
-        var city2Popup = "<b>"+city2Name+"</b><br>"
-                       +"<b>population</b>: "+city2Pop;
+//if(city2Capital == true) {
+//  city2Popup += "<br>Broadway";   
+//}
         
-        if(city2Capital == true) {
-            city2Popup += "<br>Broadway";   
-        }
-        
-        L.marker([city2Lat,city2Lon]).addTo(map)
-            .bindPopup(city2Popup);
+//L.marker([city2Lat,city2Lon]).addTo(map)
+//  .bindPopup(city2Popup);
         
        
-        var city3Popup = "<b>"+city3Name+"</b><br>"
-                        +"<b>population</b>: "+city3Pop;
+//var city3Popup = "<b>"+city3Name+"</b><br>"
+//              +"<b>population</b>: "+city3Pop;
         
-        if(city3Capital == true) {
-           city3Popup += "<br>Broadway";   
-       }
+//if(city3Capital == true) {
+// city3Popup += "<br>Broadway";   
+//}
        
-       L.marker([city3Lat,city3Lon]).addTo(map)
-            .bindPopup(city3Popup);
+//L.marker([city3Lat,city3Lon]).addTo(map)
+//   .bindPopup(city3Popup);
         
         // end writing/editing Lab 04 code here
         
