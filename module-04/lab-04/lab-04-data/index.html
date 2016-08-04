@@ -122,21 +122,16 @@ for(var i = 0; i < cities.length; i++) {
     console.log(cities[i]); 
 }
 
-
-        
-        // var popup = "<b>"+/* add code here */+"</b><br>"
-//                            +"<b>population</b>: "+/* add code here */;
-//
-        
-//            if(/* add code here */) {
-//               
-//                popup += "<br>Is the capital city."; 
-//                
-//            } 
-//            
-//            L.marker(/* add code here */).addTo(map)
-//                .bindPopup(popup);
-//        } var city1Popup = "<b>"+city1Name+"</b><br>"
+var popup = "<b>"+cities+"</b><br>"
+        +"<b>population</b>: "+cityPops;
+   
+if(cityCapital === "yes") {
+popup += "<br>Is the capital city."; 
+} 
+            
+            L.marker(cityCoords).addTo(map)
+                .bindPopup(popup);
+        } var city1Popup = "<b>"+city1Name+"</b><br>"
                         
 //This is the way we did it in lab #3 - just making sure it works        
 //var city1Popup = "<b>"+city1Name+"</b><br>"
