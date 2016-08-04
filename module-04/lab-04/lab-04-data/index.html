@@ -25,11 +25,13 @@
         h1 {
             display: inline-block;
             margin-right: 20px;
-            color: #001323;
+            color: #8A2BE2;
+            font-family:fantasy
         }
         h2 {
             display: inline-block;
             color: #001323;
+            
         }
         #map {
             width: 80%;
@@ -51,16 +53,16 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Possible Travel Plans</h1>
+        <h2>$?$?$?$?$?$?$</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
+        <p>Map authored by Bradley Gardener</p>
+        <p>The data here is easily available through Google searches.</p>
+        <p>Stockholm is a weird bird. The Lat and Lon seem to be off. I have some questions about the control points the author of the base map used to digitize! That is not what is important. What is - todat I learned how to build and access arrays. I feel good about if and else. Unfortunately, the for statements still allude me. I see them as mechanism for creating an array without explicitly listing everything in it - you have your conditions and boundaries and it gives you everything within your parameter - break makes sense here. I'm just not sure why we needed to use it in this case. Perhaps I made an error by repeating the popup code three ways. I would love some feedback on this. Thanks!
         </p>
     </footer>
 
@@ -134,6 +136,32 @@ popup += "<br>Is the capital city.";
                 .bindPopup(popup);
         
             var city1Popup = "<b>"+city1Name+"</b><br>"
+
+var popup = "<b>"+cities[1]+"</b><br>"
+        +"<b>population</b>: "+cityPops[0];
+   
+if(cityCapital[1] == true) {
+popup += "<br>Is the capital city."; 
+} 
+            
+            L.marker([cityCoords[1][0],cityCoords[1][1]]).addTo(map)
+        
+                .bindPopup(popup);
+        
+            var city2Popup = "<b>"+city2Name+"</b><br>"
+            
+var popup = "<b>"+cities[2]+"</b><br>"
+        +"<b>population</b>: "+cityPops[0];
+   
+if(cityCapital[2] == true) {
+popup += "<br>Is the capital city."; 
+} 
+            
+            L.marker([cityCoords[2][0],cityCoords[2][1]]).addTo(map)
+        
+                .bindPopup(popup);
+        
+            var city3Popup = "<b>"+city3Name+"</b><br>"
                         
 //This is the way we did it in lab #3 - just making sure it works        
 //var city1Popup = "<b>"+city1Name+"</b><br>"
