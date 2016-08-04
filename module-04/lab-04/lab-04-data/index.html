@@ -122,10 +122,10 @@ for(var i = 0; i < cities.length; i++) {
     console.log(cities[i]); 
 }
 
-var popup = "<b>"+cities+"</b><br>"
-        +"<b>population</b>: "+cityPops;
+var popup = "<b>"+cities[0]+"</b><br>"
+        +"<b>population</b>: "+cityPops[0];
    
-if(cityCapital === "yes") {
+if(cityCapital[0] == true) {
 popup += "<br>Is the capital city."; 
 } 
             
