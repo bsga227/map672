@@ -129,9 +129,11 @@ if(cityCapital === "yes") {
 popup += "<br>Is the capital city."; 
 } 
             
-            L.marker(cityCoords).addTo(map)
+            L.marker([cityCoords[0][0],cityCoords[0][1]]).addTo(map)
+        
                 .bindPopup(popup);
-        } var city1Popup = "<b>"+city1Name+"</b><br>"
+        
+            var city1Popup = "<b>"+city1Name+"</b><br>"
                         
 //This is the way we did it in lab #3 - just making sure it works        
 //var city1Popup = "<b>"+city1Name+"</b><br>"
