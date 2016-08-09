@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Lesson 05 Starter Template</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+</head>
+
+<body>
+
+
+<script>
+//var helloMap = function() {
+        console.log("Hello Map");
+ //   };
+
+ //   helloMap();
+    
+    function outerFunction(message) {
+    console.log(message);
+    var innerFunction = function(message) {
+        console.log(message);
+    };
+    innerFunction("I’m inside!");
+}
+outerFunction("i'm outside!");
+    
+function saySomething(message) {  
+    console.log(message);
+}
+
+var message = "Hello Map";
+saySomething(message);
+
+message = "Please enter the address you'd like to search for."
+saySomething(message);
+    
+function calcAreaRect(width,height){
+var area = width * height;
+console.log(area);
+}
+
+var peanutButter = 40;
+var jelly = 30
+calcAreaRect(peanutButter,jelly);
+
+function calcAreaRect(width,height){
+var area = width * height;
+return area; 
+}
+
+var calculatedArea = calcAreaRect(40,30);  // <-- the return value is assigned to calculated Area
+console.log(calculatedArea);
+    
+function getMultiValues() {
+    var value1 = 5;
+    var value2 = "iguana";
+    return [value1, value2];
+}
+
+var values = getMultiValues();
+console.log(values[0]); // output is 5
+console.log(values[1]); // output is "iguana"
+
+</script>
+    
+</body>
+
+</html>
