@@ -67,138 +67,56 @@
     </footer>
 
     <script>
-        var map;
         var targetDiv = 'map';
 
         var options = {
             center: [59.3293, 18.0686],
             zoom: 5
         }
-        
-        var city1Name = "Oslo";
-        var city1Lat = 59.9139;
-        var city1Lon = 10.7522;
-        var city1Pop = 618683;
-        var city1Capital; 
-        city1Capital = (true);
-        
-        var city2Name = "Stockholm";
-        var city2Lat = 59.3293;
-        var city2Lon = 18.0686;
-        var city2Pop = 789024;
-        var city2Capital; 
-        city2Capital = (true);
-        
-        var city3Name = "Helsinki";
-        var city3Lat = 60.1699;
-        var city3Lon = 24.93844;
-        var city3Pop = 599676;
-        var city3Capital; 
-        city3Capital = (true);
-        
-        var cities = ["Oslo", "Stockholm", "Helsinki"];
-        console.log(cities);
-        
-        map = L.map(targetDiv, options);
+      
+        var map = L.map(targetDiv, options);
         var tiles = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
-});
+          attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+        });
+
         map.addLayer(tiles);
           
+        // declare our four data structures for three cities
         
-var cityCoords = [ 
-        [59.3293, 10.7522],
-        [59.9139, 18.0686],
-        [60.1699, 24.93844]
-    ];
-    console.log(cityCoords);
+        // city names
+        var cities = ["Oslo", "Stockholm", "Helsinki"];
         
-var cityPops = [618613, 789024, 599679];
-        console.log(cityPops); 
-        
-var cityCapital = [true, true,true];
-        console.log(cityCapital);     
-
-for(var i = 0; i < cities.length; i++) {
-    console.log(i); 
-    console.log(cities[i]); 
-}
-
-var popup = "<b>"+cities[0]+"</b><br>"
-        +"<b>population</b>: "+cityPops[0];
+        // city coordinates
+        var cityCoords = [ 
+            [59.9139, 10.7522],
+            [59.3293, 18.0686],
+            [60.1699, 24.93844]
+        ];
    
-if(cityCapital[0] == true) {
-popup += "<br>Is the capital city."; 
-} 
+        // city populations
+        var cityPops = [618613, 789024, 599679];
+      
+        // whether cities are capitals
+        var cityCapital = [true, true,true];
+           
+        // for each city
+        for(var i = 0; i < cities.length; i++) {
             
-            L.marker([cityCoords[0][0],cityCoords[0][1]]).addTo(map)
-        
+            // build a new popup string with that city's name and population
+            var popup = "<b>"+cities[i]+"</b><br>"
+                +"<b>population</b>: "+cityPops[i].toLocaleString();
+   
+            // if it is a capital, append the string to the popup
+            if(cityCapital[i] == true) {
+                popup += "<br>Is the capital city."; 
+            } 
+            
+            // create a marker with the city coords, add it to map, and bind popup
+            L.marker([cityCoords[i][0],cityCoords[i][1]])
+                .addTo(map)   
                 .bindPopup(popup);
-        
-            var city1Popup = "<b>"+city1Name+"</b><br>"
 
-var popup = "<b>"+cities[1]+"</b><br>"
-        +"<b>population</b>: "+cityPops[0];
-   
-if(cityCapital[1] == true) {
-popup += "<br>Is the capital city."; 
-} 
-            
-            L.marker([cityCoords[1][0],cityCoords[1][1]]).addTo(map)
-        
-                .bindPopup(popup);
-        
-            var city2Popup = "<b>"+city2Name+"</b><br>"
-            
-var popup = "<b>"+cities[2]+"</b><br>"
-        +"<b>population</b>: "+cityPops[0];
-   
-if(cityCapital[2] == true) {
-popup += "<br>Is the capital city."; 
-} 
-            
-            L.marker([cityCoords[2][0],cityCoords[2][1]]).addTo(map)
-        
-                .bindPopup(popup);
-        
-            var city3Popup = "<b>"+city3Name+"</b><br>"
-                        
-//This is the way we did it in lab #3 - just making sure it works        
-//var city1Popup = "<b>"+city1Name+"</b><br>"
-//               +"<b>population</b>: "+city1Pop;
-        
-//if(city1Capital == true) {
-//    city1Popup += "<br>Broadway";   
-//}
-        
-//L.marker([city1Lat,city1Lon]).addTo(map)
-        
-//            .bindPopup(city1Popup);
-        
-//var city2Popup = "<b>"+city2Name+"</b><br>"
-//             +"<b>population</b>: "+city2Pop;
-        
-//if(city2Capital == true) {
-//  city2Popup += "<br>Broadway";   
-//}
-        
-//L.marker([city2Lat,city2Lon]).addTo(map)
-//  .bindPopup(city2Popup);
-        
-       
-//var city3Popup = "<b>"+city3Name+"</b><br>"
-//              +"<b>population</b>: "+city3Pop;
-        
-//if(city3Capital == true) {
-// city3Popup += "<br>Broadway";   
-//}
-       
-//L.marker([city3Lat,city3Lon]).addTo(map)
-//   .bindPopup(city3Popup);
-        
-        // end writing/editing Lab 04 code here
-        
-          
+        }          
     </script>
     
 </body>
