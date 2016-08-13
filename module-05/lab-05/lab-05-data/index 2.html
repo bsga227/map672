@@ -112,8 +112,10 @@ var cityAreas = [17.926, 42.812, 35.17];
 var button = document.getElementById("map-cities");
     
     button.addEventListener("click", function() {
-         
-        var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
+        
+        do {
+            var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
+        } while (units != "miles" && units != "km");
         
         mapCities(units);
         
