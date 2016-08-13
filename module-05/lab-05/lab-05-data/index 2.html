@@ -142,7 +142,9 @@ var button = document.getElementById("map-cities");
     
 function calcPopDensity(pop, area, units) {
     if(units == 'miles'){
-var density = pop/area;        
+var density = pop/area;
+    } else if(units == 'km') {
+var density = pop/(area * 2.58999)
     }
                     
 return density;
