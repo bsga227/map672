@@ -127,7 +127,7 @@ var button = document.getElementById("map-cities");
    
    for(var i =0; i < cities.length; i++) {
        
-    var density = calcPopDensity(cityPops[i], cityAreas[i]);
+    var density = calcPopDensity(cityPops[i], cityAreas[i], units);
        
        var popup = "<b>" + cities[i] + "</b><br>" +
            "<b>Density</b>: "+density.toLocaleString()+" people per sq " + units;
@@ -140,10 +140,11 @@ var button = document.getElementById("map-cities");
    
     }
     
-function calcPopDensity(pop, area) {
-
-var density = pop/area;
-                       
+function calcPopDensity(pop, area, units) {
+    if(units == 'miles'){
+var density = pop/area;        
+    }
+                    
 return density;
     
 }
