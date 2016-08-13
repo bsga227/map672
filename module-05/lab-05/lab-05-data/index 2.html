@@ -94,7 +94,7 @@
 //    var cityCoords = // write a two-dimensional array of the coordinates for each city
 //    var cityPops = // write the populations of the 3 cities as Numbers within an array;
 //    var cityAreas = // write the areas of the 3 cities as Numbers within an array;
-    var cities = ["Syracuse", "Binghamton", "Albany"];
+    var cities = ["Binghamton", "Syracuse", "Albany"];
     console.log(cities);
 
  var cityCoords = [
@@ -104,10 +104,10 @@
     ];
     console.log(cityCoords);    
     
-var cityPops = [144669, 46444, 98424];
+var cityPops = [46444, 144669, 98424];
     console.log(cityPops)
     
-var cityAreas = [68.9, 28.85, 56.6];
+var cityAreas = [17.926, 42.812, 35.17];
     console.log(cityAreas);    
 
 var button = document.getElementById("map-cities");
@@ -116,12 +116,41 @@ var button = document.getElementById("map-cities");
          
         var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
         
-        console.log(units);
+        mapCities(units);
         
         // call a function named mapCities, and send the units variable as an argument
         
    }); // addEventListener callback function ends here
     
+   function mapCities(units) {
+       
+   
+   for(var i =0; i < cities.length; i++) {
+       
+    var density = calcPopDensity(cityPops[i], cityAreas[i]), units;
+       
+       var popup = "<b>" + cities[i] + "</b><br>" +
+           "<b>Density</b>: "+density.toLocaleString()+" people per sq" + units;
+       
+ L.marker(cityCoords[i])
+       .addTo(map)
+       .bindPopup(popup);
+       
+       }
+   
+    }
+    
+function calcPopDensity(pop, area, units) {
+
+if(units == 'miles'){
+var density = pop/area;
+} else if(units == 'km') {
+    var density = pop/(area * 2.58999);
+}
+                       
+return density;
+    
+}
     
     // write a function here named mapCities so that it accepts units as a parameter
     
