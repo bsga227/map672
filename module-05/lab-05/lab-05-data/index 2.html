@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lab 05 Starter Template</title>
+    <title>Population Desnity in the Southern Tier of New York State</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -56,16 +56,15 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Population Density in the Southern Tier</h1>
+        <h2>My foray into functions</h2>
     </header>
 
     <div id='map'></div>
     <button id='map-cities'>Map Cities</button>
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl.
+        <p>Author: Bradley Gardener</p>
+        <p>This data is based on city limit boundaries, not metropolitan areas.</p>
         </p>
     </footer>
 
@@ -73,8 +72,8 @@
     
     // map options
     var options = {
-        center: [20,-20],
-        zoom: 2
+        center: [43.0480, -76.1477],
+        zoom: 8
     }
     
     // creates the Leaflet map
@@ -90,7 +89,11 @@
     // adds these tiles to the map
     map.addLayer(tiles);
     
-var cities = ["Syracuse", "Binghamton", "Albany"];
+//    var cities = // write 3 city names as Strings within an array
+//    var cityCoords = // write a two-dimensional array of the coordinates for each city
+//    var cityPops = // write the populations of the 3 cities as Numbers within an array;
+//    var cityAreas = // write the areas of the 3 cities as Numbers within an array;
+    var cities = ["Binghamton", "Syracuse", "Albany"];
     console.log(cities);
 
  var cityCoords = [
@@ -100,42 +103,57 @@ var cities = ["Syracuse", "Binghamton", "Albany"];
     ];
     console.log(cityCoords);    
     
-var cityPops = [144669, 46444, 98424];
+var cityPops = [46444, 144669, 98424];
     console.log(cityPops)
     
-var cityAreas = [68.9, 28.85, 56.6];
-    console.log(cityAreas);
-        
-    var button = document.getElementById("map-cities");
+var cityAreas = [17.926, 42.812, 35.17];
+    console.log(cityAreas);    
+
+var button = document.getElementById("map-cities");
     
     button.addEventListener("click", function() {
-         
-    
-  var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
-    
-    mapCities(units);
-    
-    function mapCities(units){
-       }
         
-    for (var i = 0; i < cities.length; i++){
-        L.marker(cityCoords[i].addTo(map);
-    }
-      // call a function named mapCities, and send the units variable as an argument
+        do {
+            var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
+        } while (units != "miles" && units != "km");
+        
+        mapCities(units);
+        
+        // call a function named mapCities, and send the units variable as an argument
         
    }); // addEventListener callback function ends here
     
-    function mapCities(kilometers){
-        console.log(kilometers)
+   function mapCities(units) {
+       
+   
+   for(var i =0; i < cities.length; i++) {
+       
+    var density = calcPopDensity(cityPops[i], cityAreas[i], units);
+       
+       var popup = "<b>" + cities[i] + "</b><br>" +
+           "<b>Density</b>: "+density.toLocaleString()+" people per sq " + units;
+       
+ L.marker(cityCoords[i])
+       .addTo(map)
+       .bindPopup(popup);
+       
+       }
+   
     }
+    
+function calcPopDensity(pop, area, units) {
+    if(units == 'miles'){
+var density = pop/area;
+    } else if(units == 'km') {
+var density = pop/(area * 2.58999)
+    }
+                    
+return density;
+    
+}
+    
     // write a function here named mapCities so that it accepts units as a parameter
-    funtion mapCities()
-    console.log (units)
-    for (var i = 0; i < cities.length)
-        
-     var popup = "<b>"+cities[i]+"</b><br>"
-                +"<b>population</b>: "+cityPops[i].toLocaleString();
-                +<b>Area</b>: "+cityArea[i].toLocaleString();
+    
     
     // write a function named calcPopDensity here so that it accepts a single city's
     // population, area, and the value for units determined by the user

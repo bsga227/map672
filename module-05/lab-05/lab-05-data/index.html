@@ -90,22 +90,18 @@
     // adds these tiles to the map
     map.addLayer(tiles);
     
-//    var cities = // write 3 city names as Strings within an array
-//    var cityCoords = // write a two-dimensional array of the coordinates for each city
-//    var cityPops = // write the populations of the 3 cities as Numbers within an array;
-//    var cityAreas = // write the areas of the 3 cities as Numbers within an array;
+    
         
     var button = document.getElementById("map-cities");
     
-    button.addEventListener("click", function() {
-         
-        var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
+    
+  button.addEventListener("click", function(){
+    
+    var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
+    console.log(units);
+//  call a function named mapCities, and send the units variable as an argument
         
-        console.log(units);
-        
-        // call a function named mapCities, and send the units variable as an argument
-        
-    }); // addEventListener callback function ends here
+     // addEventListener callback function ends here
     
     
     // write a function here named mapCities so that it accepts units as a parameter

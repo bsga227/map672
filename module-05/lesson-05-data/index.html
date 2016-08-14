@@ -11,12 +11,23 @@
 
 
 <script>
-//var helloMap = function() {
-        console.log("Hello Map");
- //   };
+   
+function helloMap() {
+    console.log("Hello Map");
+}
 
- //   helloMap();
-    
+    helloMap();
+
+    function helloMap() {
+    console.log("Hello Map");
+}
+
+helloMap(); 
+
+function helloMap() {
+    console.log("Hello Map");
+}
+
     function outerFunction(message) {
     console.log(message);
     var innerFunction = function(message) {
@@ -25,8 +36,31 @@
     innerFunction("I’m inside!");
 }
 outerFunction("i'm outside!");
-    
-function saySomething(message) {  
+
+    function saySomething(message) {  
+    console.log(message);
+}
+
+saySomething("Hello Map"); 
+
+function saySomething(message) {
+    console.log(message);
+}
+
+saySomething("Hello Map");
+saySomething("Please enter the address you'd like to search for.");
+
+    function saySomething(message) {
+    console.log(message);
+}
+
+var firstMessage = "Hello Map";
+saySomething(firstMessage);
+
+var secondMessage = "Please enter the address you'd like to search for."
+saySomething(secondMessage);
+
+    function saySomething(message) {
     console.log(message);
 }
 
@@ -35,24 +69,53 @@ saySomething(message);
 
 message = "Please enter the address you'd like to search for."
 saySomething(message);
+
+    function calcAreaRect(width,height){
+    var area = width * height;
+    console.log(area);
+}
+
+function calcAreaRect(width,height){
+    var area = width * height;
+    console.log(area);
+}
+
+calcAreaRect(40,30);
     
 function calcAreaRect(width,height){
-var area = width * height;
-console.log(area);
+    var area = width * height;
+    console.log(area);
+}
+
+var width = 40;
+var height = 30;
+calcAreaRect(width,height);
+    
+function calcAreaRect(width,height){
+    var area = width * height;
+    console.log(area);
 }
 
 var peanutButter = 40;
 var jelly = 30
 calcAreaRect(peanutButter,jelly);
-
+    
 function calcAreaRect(width,height){
-var area = width * height;
-return area; 
+    var area = width * height;
+    return area; 
 }
 
-var calculatedArea = calcAreaRect(40,30);  // <-- the return value is assigned to calculated Area
+var calculatedArea = calcAreaRect(40,30);  
 console.log(calculatedArea);
     
+function sayThings() {
+
+    console.log("thing 1"); 
+    console.log("thing 2"); 
+    return;                  
+    console.log("thing 3");
+}
+
 function getMultiValues() {
     var value1 = 5;
     var value2 = "iguana";
@@ -60,9 +123,58 @@ function getMultiValues() {
 }
 
 var values = getMultiValues();
-console.log(values[0]); // output is 5
-console.log(values[1]); // output is "iguana"
+console.log(values[0]); // 
+console.log(values[1]);
+   
+function sayHello (){
+    var greeting = "Hi, I’m a web mapper.";
+    console.log(greeting);
+}
 
+sayHello(); // 
+console.log(greeting); 
+
+function sayHello(){
+    var greeting = "Hi, I’m a web mapper."; 
+    console.log(greeting); 
+}
+
+sayHello();  
+
+var greeting = "Howdy, I'm a cartographer"; 
+console.log(greeting); 
+
+var myNums = [1, 2, 3];
+
+// we want to log them to console
+// so we call a function and send them into that function
+logNumsToConsole(myNums);
+
+function logNumsToConsole(nums){
+  // function accepts that array as nums
+
+  //for all of our numbers stored within nums array
+  for(var i=0; i < nums.length; i++){
+    // loop through each, i is a counter for each loop
+
+    // before we log them, we want to double them
+    var doubleNumValue = doubleNum(nums[i]); // i here access each one
+
+    // THE NEXT LINE DOESN'T HAPPEN UNTIL ... the code within doubleNum runs!!!
+
+    // now we log them
+    console.log(doubleNumValue); // output is 2 4 6
+
+  }  // end for loop
+
+}  // end logNumsToConsole
+
+function doubleNum(num){
+
+  // for each number, we double it and return the value
+  return num * 2;
+
+} // end doubleNum
 </script>
     
 </body>
