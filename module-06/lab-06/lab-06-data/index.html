@@ -118,13 +118,11 @@
             
         for(var i = 0; i < cities.length; i++) {
             var props = cities[i].properties;
-          // console.log(props);
-        var popup = "<div class='"+colorClass+"'><b>"+city+"</b><br>"+
-    "<b>Population</b>: "+pop.toLocaleString()+"<div>";
+          console.log(props);
             L.marker(props.coordinates)
                 .addTo(map)   
                 .bindPopup(popup);
-           buildPopup (cities[i].name, props.population, props.county);
+          var popup = buildPopup (cities[i].name, props.population, props.county);
              };
            function buildPopup(name, population, county) {
            if (county == "onondaga") {
@@ -134,7 +132,9 @@
             } else if (county == "albany") {
                var colorClass = "albany-yellow"
                 }
-            return buildPopup 
+            return "<div class='"+colorClass+"'><b>"+cities+"</b><br>"+
+    "<b>Population</b>: "+population.toLocaleString()+"<div>";
+               return popup
            }
         
         
