@@ -94,7 +94,7 @@
                     properties: {
                     coordinates: [42.0987, -75.9180],
                     population: 46444,
-                    state : "broome"
+                    county : "broome"
                  }
              },
              {
@@ -102,7 +102,7 @@
                     properties: {
                     coordinates: [42.6526, -73.7562],
                     population: 98424,
-                   state: "albany"
+                  county : "albany"
                     }
         },
             {
@@ -110,22 +110,23 @@
                  properties: {
                      coordinates: [43.0481, -76.1474],
                      population: 144699,
-                     state: "onondaga"
+                     county : "onondaga"
                     }
         },
         ];
             
       for(var i = 0; i < cities.length; i++) {
-        //    var props = cities[i].properties;;
-          console.log(cities[i].properties.state)
+        var props = cities[i].properties;
+          //console.log(props);
           //  L.marker(props.coordinates)
             //    .addTo(map)   
               //  .bindPopup(popup);
-            //var Popup =  var popup = "<div class='"+colorClass+"'><b>"+cities+"</b><br>"+
+            //va//r Popup =  var popup = "<div class='"+colorClass+"'><b>"+cities+"</b><br>"+
         //"<b>Population</b>: "+population.toLocaleString()+"<div>"; 
-          // var colorClass = buildPopup (cities[i].name, props.population, props.county);
-            }
-        //function buildPopup(name, population, county) {
+          buildPopup (cities[i].name, props.population, props.county);
+          }
+        function buildPopup (city, pop, county) {
+            console.log(city, pop, county);
           //if (county == "onondaga") {
             //  var colorClass = "syracuse-orange" 
            //} else if (county == "broome") {
@@ -134,7 +135,7 @@
               // var colorClass = "albany-yellow"
       //}
         //     return  colorClass
-        //}
+        }
         
         
           // console.log (cities[i].name)
