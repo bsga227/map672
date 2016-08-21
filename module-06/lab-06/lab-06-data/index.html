@@ -51,10 +51,10 @@
             color: #D44500
         }
         .binghamton-green{
-            color: 005A43
+            color: #005A43
         }
         .albany-yellow {
-            color: FFFF00
+            #color: FFFF00
         }
         
     </style>
@@ -118,23 +118,23 @@
       for(var i = 0; i < cities.length; i++) {
         var props = cities[i].properties;
           //console.log(props);
-          //  L.marker(props.coordinates)
-            //    .addTo(map)   
-              //  .bindPopup(popup);
-            //va//r Popup =  var popup = "<div class='"+colorClass+"'><b>"+cities+"</b><br>"+
-        //"<b>Population</b>: "+population.toLocaleString()+"<div>"; 
-          buildPopup (cities[i].name, props.population, props.county);
+           L.marker(props.coordinates)
+            .addTo(map)   
+              .bindPopup(popup);
+        var popup = buildPopup (cities[i].name, props.population, props.county);
           }
+        console.log(colorClass);
         function buildPopup (city, pop, county) {
             console.log(city, pop, county);
-          //if (county == "onondaga") {
-            //  var colorClass = "syracuse-orange" 
-           //} else if (county == "broome") {
-             //  var colorClass = "binghamton-green"
-            //} else if (county == "albany") {
-              // var colorClass = "albany-yellow"
-      //}
-        //     return  colorClass
+          if (county === "onondaga") {
+            var colorClass = "syracuse-orange" 
+           } else if (county == "broome") {
+             var colorClass = "binghamton-green"
+            } else if (county == "albany") {
+              var colorClass = "albany-yellow"
+      }
+        return "<div class='"+colorClass+"'><b>"+city+"</b><br>"+
+"<b>Population</b>: "+pop.toLocaleString()+"<div>"
         }
         
         
