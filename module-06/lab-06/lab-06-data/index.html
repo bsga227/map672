@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lab 06 Starter Template</title>
+    <title>Upstate New York Rivals</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -104,7 +104,7 @@
                     population: 46444,
                     county : "broome"
                     }
-        },
+            },
             {
                 name: "Albany",
                     properties: {
@@ -112,43 +112,34 @@
                     population: 98424,
                   county : "albany" 
                     }
-        },
+            },
         ];
             
       for(var i = 0; i < cities.length; i++) {
-        var props = cities[i].properties;
-          //console.log(props);
-           L.marker(props.coordinates)
-            .addTo(map)   
-              .bindPopup(popup);
-       var popup = buildPopup (cities[i].name, props.population, props.county);
-          }
-        //console.log(colorClass);
-        function buildPopup (city, pop, county) {
-            console.log(city, pop, county);
+            var props = cities[i].properties;
+          
+            var popup = buildPopup (cities[i].name, props.population, props.county);
+            
+            L.marker(props.coordinates)
+                .addTo(map)   
+                .bindPopup(popup);
+            
+       }
+       
+       function buildPopup (city, pop, county) {
+            
           if (county === "onondaga") {
-            var colorClass = "syracuse-orange" 
-           } if (county === "broome") {
-             var colorClass = "binghamton-green"
-            } if (county === "albany") {
-              var colorClass = "albany-yellow"
-      }
-        return "<div class='"+colorClass+"'><b>"+city+"</b><br>"+
-"<b>Population</b>: "+pop.toLocaleString()+"<div>"
+            var colorClass = "syracuse-orange"; 
+          } else if (county === "broome") {
+             var colorClass = "binghamton-green";
+          } else if (county === "albany") {
+              var colorClass = "albany-yellow";
+          }
+        
+          return "<div class='"+colorClass+"'><b>"+city+"</b><br>"+
+            "<b>Population</b>: "+pop.toLocaleString()+"<div>"
         }
         
-        
-          // console.log (cities[i].name)
-           
-        //  if(cityCapital[i] == true) {
-         //       popup += "<br>Is the capital city."; 
-             
-          //console.log(cities[i].properties);
-          //  console.log(cities[i].properties.coordinates[1]);
-            
-               //console.log(props.population);
-              // console.log(cities[i].name);
-          
     </script>
 
 </body>
