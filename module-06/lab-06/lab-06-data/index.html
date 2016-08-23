@@ -54,7 +54,7 @@
             color: #005A43
         }
         .albany-yellow {
-            #color: FFFF00
+            color: #FFFF00
         }
         
     </style>
@@ -110,7 +110,7 @@
                     properties: {
                     coordinates: [42.6526, -73.7562],
                     population: 98424,
-                  county : "albany" 
+                    county : "albany" 
                     }
         },
         ];
@@ -118,11 +118,12 @@
       for(var i = 0; i < cities.length; i++) {
         var props = cities[i].properties;
           //console.log(props);
-           L.marker(props.coordinates)
+       var popup = buildPopup (cities[i].name, props.population, props.county);
+          
+          L.marker(props.coordinates)
             .addTo(map)   
               .bindPopup(popup);
-       var popup = buildPopup (cities[i].name, props.population, props.county);
-          }
+      }
         //console.log(colorClass);
         function buildPopup (city, pop, county) {
             console.log(city, pop, county);
