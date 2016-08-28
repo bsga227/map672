@@ -138,13 +138,17 @@ var greenIguanaMarker = L.marker(greenIguanaLocation, {
 var greenIguanaCircle = L.circle(greenIguanaLocation, 80000);
     greenIguanaCircle.addTo(map);
 
+//Creating a layerGroup Leaflet object - and giving it a variable name so we can call it later //iguanaResturants will refer to this layer group.
 var iguanaRestaurants = L.layerGroup();
+//setting the method circle, which has two required elements, the origin of the circle and the size of it. We do the same for the blue iguana as well. It should be noted that the size of the circles are different. 
 var redIguana = L.circle([40.7718,-111.9124], 400);
 redIguana.addTo(iguanaRestaurants);
 var blueIguana = L.circle([40.7657, -111.8930], 300);
+//Here in both cases we .addTo iguana resturants to make sure we can call both methods through the layergroup, which iguanaRestuarants - which are now adding to the map. 
 blueIguana.addTo(iguanaRestaurants);
 iguanaRestaurants.addTo(map);
 
+//here we create the Leaflet object layergroup in a different way, with options. First we create the options, and then we punch them into the L.circle method.
 var iguanaRestaurants = L.layerGroup();
 var redIguanaOptions = {
     color: 'red',
@@ -154,14 +158,17 @@ var blueIguanaOptions = {
     color: '#03f',
     fillColor: '#03f'
 };
+        //these are standard calls cor Leafletmethod, except instead of writing out the options each time along with the required information, we have them tied up in a variable - options. We then add them to the layergroup we named iguanaRestuarants as before. What's up with the .colors? They don't seem to make sense here because we have previously called the colors in the options sections - the color makes a difference in the else, if statements to follow. In these cases we are referring to states that have already been established using the color method.
 var redIguana = L.circle([40.7718,-111.9124], 400, redIguanaOptions);
 redIguana.color = 'red';
 redIguana.addTo(iguanaRestaurants);
 var blueIguana = L.circle([40.7657, -111.8930], 300, blueIguanaOptions);
 blueIguana.color = 'blue';
 blueIguana.addTo(iguanaRestaurants);
+        //the final important step - add everything we did to the map
 iguanaRestaurants.addTo(map);
 
+// the mouseover is an event - this is the advantage of web maps. Interaction we are setting the color to yellow when the user hovers over the circles.         
 iguanaRestaurants.eachLayer(function(layer) {
     layer.on('mouseover', function(e) {
         e.target.setStyle({
@@ -169,6 +176,7 @@ iguanaRestaurants.eachLayer(function(layer) {
             fillColor: 'yellow'
         });
     });
+    //Down here we are insuring with a if else statement that the circles turn back to their original colors when they cease to be highlighted. In the previous piece of code we set up the yellow mouseover event. Here we set under conditions.
     layer.on('mouseout', function(e) {
         if(e.target.color == 'red') {
             e.target.setStyle(redIguanaOptions);
