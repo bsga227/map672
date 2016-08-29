@@ -52,16 +52,16 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>The Jalapenos at the Iguana are so hot, it turned the Salt Lake to Fire!</h1>
+        <h2>Very Spicy</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
+        <p>Map by Bradley Gardener</p>
+        <p>Frustrations!</p>
+        <p>
         </p>
     </footer>
 
@@ -73,6 +73,12 @@
     }
     
     var map = L.map('map', options);
+    
+    var Thunderforest_SpinalMap = L.tileLayer('http://{s}.tile.thunderforest.com/spinal-map/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	maxZoom: 11
+});
+map.addLayer(Thunderforest_SpinalMap);
                 
     var redIguana = L.latLng(40.7718,-111.9124);
         
@@ -82,13 +88,58 @@
             iconSize: [40, 36]
         })
     }).addTo(map);
+                 
+   
         
-    map.on('click', function(e){
+   map.on('click', function(e){
+  console.log(e.latlng);
+
+var clickCoord = e.latlng;
+
+var marker = L.marker(clickCoord, {
+      draggable: true
+});
+
+var kiloMeters = redIguana.distanceTo(clickCoord);
+marker.addTo(map);
+
+marker.bindPopup("The amount of KM from the Red Iguana "+kiloMeters+"");
+       
+   });
+
+        
+        
+  // marker.addTo(map);
+  //marker.bindPopup("km from the red Iguana").openPopup();
+
+//Var A = L.latLng([40.7718,-111.9124]).distanceTo(redIguana;
+  //      console.log(A);
+
+    //marker.on ("dragend", function(e) {
+    //marker.getPopup().setContent("The amount of KM from the Red Iguana" + //marker.getLatLng().toString());
+    
+     
+     
+     
+        //+ marker.distanceto(rediguana);
+   // distance.addTo(map);
+  //.toString()).openOn(map);
+//});
+  //  distance.addTo(map);
+    //distance.bindPopup(
+    //"km from the red Iguana"
+//    );
+        
+//var draggable = new L.Draggable('dragend');
+//draggable.enable();
+
+        
+
         
         // output is o.LatLng {lat: 40.863679665481676, lng: -114.57847595214842}  
-        console.log(e.latlng); 
+       // console.log(e.latlng); 
         
-    });
+    //});
                   
     </script>
     
