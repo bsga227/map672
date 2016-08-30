@@ -75,10 +75,10 @@
     var map = L.map('map', options);
     
     var Thunderforest_SpinalMap = L.tileLayer('http://{s}.tile.thunderforest.com/spinal-map/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-	maxZoom: 11
-});
-map.addLayer(Thunderforest_SpinalMap);
+      attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 11
+    });
+    map.addLayer(Thunderforest_SpinalMap);
                 
     var redIguana = L.latLng(40.7718,-111.9124);
         
@@ -89,23 +89,36 @@ map.addLayer(Thunderforest_SpinalMap);
         })
     }).addTo(map);
                  
-   
+   var markers = L.layerGroup().addTo(map);
         
    map.on('click', function(e){
-  console.log(e.latlng);
+  
+       markers.clearLayers();
+       
+       var clickCoord = e.latlng;
 
-var clickCoord = e.latlng;
+       var marker = L.marker(clickCoord, {
+              draggable: true
+        });
+       
+       marker.addTo(markers);
 
-var marker = L.marker(clickCoord, {
-      draggable: true
-});
+       var kiloMeters = calcDistance(redIguana, clickCoord);
 
-var kiloMeters = redIguana.distanceTo(clickCoord);
-marker.addTo(map);
-
-marker.bindPopup("The amount of KM from the Red Iguana "+kiloMeters+"");
+       marker.bindPopup("The amount of KM from the Red Iguana "+kiloMeters).openPopup();
+       
+       marker.on('dragend', function(e){
+               
+           var newDistance = redIguana.distanceTo(e.target._latlng);
+           
+           marker.setPopupContent("The amount of KM from the Red Iguana  "+newDistance).openPopup();
+       });
        
    });
+        
+   function calcDistance(fromPoint, toPoint) {
+       return fromPoint.distanceTo(toPoint);
+   }
 
         
         
