@@ -109,7 +109,7 @@
        
        marker.on('dragend', function(e){
                
-           var newDistance = redIguana.distanceTo(e.target._latlng);
+           var newDistance = calcDistane(redIguana, e.target._latlng);
            
            marker.setPopupContent("The amount of KM from the Red Iguana  "+newDistance).openPopup();
        });
