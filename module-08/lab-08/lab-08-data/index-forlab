@@ -94,21 +94,21 @@ console.log(plants);
 L.geoJson(plants, {
     pointToLayer: function(feature,latlng) {
             return L.circleMarker(latlng, {
-                color: 'HotPink',
+                color: '#FFFF40',
                 weight: 1,
-                fillColor: 'HotPink',
+                fillColor: '#66FF66',
                 fillOpacity: .8,
                 radius: 5
             });   
     },
     filter: function(feature, layer) {
-        if(feature.properties.fuel_source.Nuclear && feature.properties.capacity_mw > 3000){
+        if(feature.properties.fuel_source.Nuclear &&){
             return feature;   
         }
     }
           }).addTo(map);
 
-        //use circlemarker instaed of circle class because here we will deal with pixels instead of meters bettwer for deisgn!! 
+        //use circlemarker instaed of circle class because here we will deal with pixels instead of meters bettwer for deisgn 
 
 
 
