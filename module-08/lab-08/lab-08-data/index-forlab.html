@@ -90,23 +90,46 @@ console.log(plants);
      //});   
     //}
 //}).addTo(map);
+        
+plants.features.sort(function(a, b) {
+    return b.properties.capacity_mw - a.properties.capacity_mw;
+});
 
 L.geoJson(plants, {
     pointToLayer: function(feature,latlng) {
-            return L.circleMarker(latlng, {
+            return L.circleMarker(latlng, { 
                 color: '#FFFF40',
                 weight: 1,
-                fillColor: '#66FF66',
-                fillOpacity: .8,
-                radius: 5
+                fillColor: '#000000',
+                fillOpacity: .3,
+                radius: feature.properties.capacity_mw * .01
             });   
     },
+    
     filter: function(feature, layer) {
-        if(feature.properties.fuel_source.Nuclear){
+      if(feature.properties.fuel_source.Nuclear){
             return feature;   
-        }
+       }
+  },
+    onEachFeature : function(feature,layer) {
+    layer.on('mouseover', function() {
+    layer.setStyle({
+    fillColor: 'green'
+  });
+});
+    //}
+layer.on('mouseout', function() {
+layer.setStyle({
+fillColor: 'black'
+});
+});
+
+layer.bindPopup('features.properties');     
+
     }
           }).addTo(map);
+        
+        
 
         //use circlemarker instaed of circle class because here we will deal with pixels instead of meters bettwer for deisgn 
 
