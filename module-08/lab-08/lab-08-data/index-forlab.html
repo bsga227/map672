@@ -63,7 +63,7 @@
     <script src="power-plants.js"></script>
     <script>
 
-    var map = L.map('map', {
+var map = L.map('map', {
     center: [36,-94],
     zoom: 4,
 });
@@ -94,33 +94,32 @@ L.geoJson(plants, {
                 radius: getRadius(feature.properties.capacity_mw)
             });   
     },
-    
     filter: function(feature, layer) {
       if(feature.properties.fuel_source.Nuclear){
             return feature;   
        }
   },
     onEachFeature : function(feature,layer) {
-    layer.on('mouseover', function() {
-    layer.setStyle({
-    fillColor: 'green'
-  });
-});
-    //}
-layer.on('mouseout', function() {
-layer.setStyle({
-fillColor: 'black'
-});
-});
+        layer.on('mouseover', function() {
+            layer.setStyle({
+                fillColor: 'green'
+            })
+        });
+
+        layer.on('mouseout', function() {
+            layer.setStyle({
+                fillColor: 'black'
+            });
+        });
     
     layer.bindPopup("<i>"+feature.properties.plant_name+"</i><br>" 
-                              +feature.properties.capacity_mw+ " MW");
+                         +feature.properties.capacity_mw+ " MW");
         
     }
  
-    }).addTo(map);
+}).addTo(map);
         
-  function getRadius(area) {
+    function getRadius(area) {
         var radius = Math.sqrt(area/Math.PI);
         return radius * .6;  
   };
