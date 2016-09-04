@@ -49,15 +49,15 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Nuclear Power Plants in the United States</h1>
+        <h2>Proportional Symbols Weighted in Daily Megawatt Output</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
+        <p>Map authored by Bradley Gardener</p>
+        <p>Feeling good about this one!</p>
     </footer>
 
     <script src="power-plants.js"></script>
@@ -79,17 +79,6 @@ tiles.addTo(map);
         
 console.log(plants);
 
-//L.geoJson(plants, {
-  //  pointToLayer: function(feature,latlng) {
-    //     return L.circleMarker(latlng, {
-      //   color: 'orange',
-        // weight: 1,
-        // fillColor: 'yellow',
-         //fillOpacity: 1,
-         //radius: 2
-     //});   
-    //}
-//}).addTo(map);
         
 plants.features.sort(function(a, b) {
     return b.properties.capacity_mw - a.properties.capacity_mw;
@@ -102,7 +91,7 @@ L.geoJson(plants, {
                 weight: 1,
                 fillColor: '#000000',
                 fillOpacity: .3,
-                radius: feature.properties.capacity_mw * .01
+                radius: getRadius(feature.properties.capacity_mw)
             });   
     },
     
@@ -123,14 +112,20 @@ layer.setStyle({
 fillColor: 'black'
 });
 });
+    
+    layer.bindPopup("<i>"+feature.properties.plant_name+"</i><br>" 
+                              +feature.properties.capacity_mw+ " MW");
+        
     }
-var popup = L.popup(feature.properties.fuel_source);
-layer.bindPopup(popup);  
+ 
     }).addTo(map);
         
-        
+  function getRadius(area) {
+        var radius = Math.sqrt(area/Math.PI);
+        return radius * .6;  
+  };
 
-        //use circlemarker instaed of circle class because here we will deal with pixels instead of meters bettwer for deisgn 
+         
 
 
 
