@@ -123,11 +123,10 @@ layer.setStyle({
 fillColor: 'black'
 });
 });
-
-layer.bindPopup('features.properties');     
-
     }
-          }).addTo(map);
+var popup = L.popup(feature.properties.fuel_source);
+layer.bindPopup(popup);  
+    }).addTo(map);
         
         
 
