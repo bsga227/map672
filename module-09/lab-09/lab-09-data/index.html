@@ -75,6 +75,54 @@
       });  
       
       tiles.addTo(map);
+        
+var commonStyles = {
+        weight: 1,
+        stroke: 1,
+        fillOpacity: .8
+}
+
+var layerInfo = {
+    coalLayer: {source:"Coal", color:'#DEB887'}, 
+    naturalgasLayer: {source:"Natural Gas", color:'#0000FF'},
+    nuclearLayer: {source:"Nuclear", color: '#F0E68C'}
+};
+
+var geoJsonLayers = {};
+
+for(var layer in layerInfo) {     
+    geoJsonLayers[layer] = L.geoJson(plants, {
+        pointToLayer: function(feature,latlng) {
+            return L.circleMarker(latlng, commonStyles);
+        },
+        filter: function(feature) {
+            if(feature.properties.fuel_source[layerInfo[layer].source]) {
+                return feature;
+            }
+        },
+        style: function(feature) {
+            return {
+                color: layerInfo[layer].color,
+                fillColor: layerInfo[layer].color,
+                radius: getRadius(feature.properties.fuel_source[layerInfo[layer].source])
+            } 
+        } 
+    }).addTo(map);        
+    }
+
+function getRadius(val) {
+    var radius = Math.sqrt(val/Math.PI);
+    return radius * .8;   
+}
+
+var sourcesLabels = {
+    "Natural Gas": geoJsonLayers.naturalgasLayer,
+    "Coal": geoJsonLayers.coalLayer,
+    "Nuclear": geoJsonLayers.nuclearLayer
+}
+
+L.control.layers(null, sourcesLabels, { collapsed:false }).addTo(map);
+
                   
     </script>
     
