@@ -84,7 +84,7 @@ var commonStyles = {
 
 var layerInfo = {
     coalLayer: {source:"Coal", color:'#DEB887'}, 
-    naturalgasLayer: {source:"Natural Gas", color:'#0000FF'},
+    ngLayer: {source:"Natural Gas", color:'#0000FF'},
     nuclearLayer: {source:"Nuclear", color: '#F0E68C'}
 };
 
@@ -116,9 +116,10 @@ function getRadius(val) {
 }
 
 var sourcesLabels = {
-    "Natural Gas": geoJsonLayers.naturalgasLayer,
-    "Coal": geoJsonLayers.coalLayer,
-    "Nuclear": geoJsonLayers.nuclearLayer
+    
+   "<b style='color:#DEB887; text-shadow: 0px 0px 1px #333;'>Coal</b>": geoJsonLayers.coalLayer,
+    "<b style='color:#0000FF; text-shadow: 0px 0px 1px #333;'>Natural Gas</b>": geoJsonLayers.ngLayer,
+    "<b style='color:##F0E68C; text-shadow: 0px 0px 1px #333;'>Nuclear</b>":geoJsonLayers.nuclearLayer
 }
 
 L.control.layers(null, sourcesLabels, { collapsed:false }).addTo(map);
