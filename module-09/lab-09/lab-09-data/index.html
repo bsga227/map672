@@ -141,12 +141,11 @@ map.on('click', function(e){
                       fill: true,
                   });
         
-                  var props = layer.feature.properties;
                   var content = "<b>" + layer.feature.properties.plant_name + "</b><br>";
                                   
                   content += "<b>" + layerInfo[i].source +"</b>: " +
                       
-                  props.fuel_source[layerInfo[i].source].toLocaleString() + " MW <br>";
+                 layer.feature.properties.fuel_source[layerInfo[i].source].toLocaleString() + " MW <br>";
                   
                   content += "I am <i>" +distance.toLocaleString()+
                                  " km</i><br> from the click point."
